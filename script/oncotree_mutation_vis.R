@@ -4,7 +4,7 @@
 # Description: Analysis and Visualization Pipeline for Rare Tumor Germline Mutation
 # Version: 1.0
 # Dependencies: See README.md for R package requirements
-# Input Files: Figure1.rds, figure2.rds, figure4.rdata, gene_info.xlsx
+# Input Files: Figure1.rdata, figure2.rdta, figure4.rdata, gene_info.xlsx
 # Output: Four core figures for rare tumor germline mutation analysis (tiff, 300dpi)
 # Note: All input files should be placed in the project root directory
 # ==============================================================================
@@ -39,10 +39,10 @@ conflict_prefer("filter", "dplyr")
 # ==============================================================================
 # Figure 1: Cancer Type Distribution (Pie + Bubble + Bar Plot)
 # Core: Sample distribution by cancer type/subtype & mutation rate
-# Input: Figure1.rds (contains clin_info, cancer_level, total_counts)
+# Input: Figure1.rdata (contains clin_info, cancer_level, total_counts)
 # Output: figure1_cancer_distribution.tiff
 # ==============================================================================
-load(file = "figur1.rdata") # Load clin_info, cancer_level, total_counts
+load(file = "figure1.rdata") # Load clin_info, cancer_level, total_counts
 
 # Prepare pie chart data
 pie_data <- clin_info %>%
@@ -134,7 +134,7 @@ ggsave("figure1_cancer_distribution.tiff", final_plot1,
 # ==============================================================================
 # Figure 2: Mutation Landscape (Heatmap + Bar + Tile + OR Plot)
 # Core: Gene mutation type/rate, cancer-gene mutation distribution, OR analysis
-# Input: figure2.rds (contains mat, clin_info, mut_data)
+# Input: figure2.rdata (contains mat, clin_info, mut_data)
 # Output: figure2_mutation_landscape.tiff, figure2_cancer_gene_or.tiff
 # ==============================================================================
 load("figure2.rdata") # Load mat, clin_info, mut_data
